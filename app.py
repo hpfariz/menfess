@@ -44,8 +44,8 @@ def start():
             print("DM is empty")
             dms = tw.read_dm()
             if len(dms) == 0:
-                # time.sleep(60)
-                break
+                time.sleep(60)
+                # break
 
 
 if __name__ == "__main__":
