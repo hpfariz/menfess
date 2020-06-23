@@ -1,9 +1,9 @@
 from twitter import Twitter
 import time
-from media import Media
+# from media import Media
 
 tw = Twitter()
-media = Media()
+# media = Media()
 def start():
     print("Starting...")
     dms = list()
