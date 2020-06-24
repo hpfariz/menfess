@@ -15,8 +15,9 @@ def start():
                 sender_id = dms[i]['sender_id']
                 screen_name = tw.get_user_screen_name(sender_id)
                 id = dms[i]['id']
-                if screen_name != "nyobafhp" and "mf" in message:
-                    file = open("list.txt", "a")
+                if screen_name != "nyobafhp" and ("[mf]" in message or "[Mf]" in message or"[mF]" in message or "[MF]" in message):
+                    benar = open("list.txt", "a")
+                    salah = open("banned.txt", "a")
 
                     if len(message) != 0 and len(message) <= 500:
                         if "https://" not in message and "http://" not in message:
@@ -25,16 +26,18 @@ def start():
                                 tw.post_tweet(message)
                                 print("somethinga")
                                 tw.delete_dm(id)
-                                file.write("(" + screen_name + ", " + id + ", " + message + ")\n")
+                                benar.write("(" + screen_name + ", " + id + ", " + message + ")\n")
 
                             else:
                                 tw.post_tweet(message)
-                                print("somethingb   ")
+                                print("somethingb")
                                 tw.delete_dm(id)
-                                file.write("(" + screen_name + ", " + id + ", " + message + ")\n")
+                                benar.write("(" + screen_name + ", " + id + ", " + message + ")\n")
                         else:
+                            salah.write("(" + screen_name + ", " + id + ", " + message + ")\n")
                             tw.delete_dm(id)
-                    file.close()
+                    benar.close()
+                    salah.close()
                 else:
                     tw.delete_dm(id)
 
