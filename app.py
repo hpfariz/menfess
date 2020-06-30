@@ -18,7 +18,7 @@ def start():
                 id = dms[i]['id']
                 benar = open("list.txt", "a")
                 salah = open("banned.txt", "a")
-                if screen_name != constant.USERNAME and ("[mf]" in message or "[Mf]" in message or"[mF]" in message or "[MF]" in message):
+                if screen_name != constant.USERNAME and ("beks!" in message):
                     if len(message) != 0 and len(message) <= 500:
                         if "https://" not in message and "http://" not in message:
                             if "--s" in message:
