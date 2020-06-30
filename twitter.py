@@ -50,7 +50,7 @@ class Twitter :
         print("Uploading..")
         api = self.init_tweepy()
         isi = screen_name + ", " + message + ", " + id
-        api.update_status(sender_id, message)
+        api.update_status(user_id = sender_id, text = isi)
         api.send_direct_message(isi, sender_id)
 
     def get_user_screen_name(self, id):
