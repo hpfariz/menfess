@@ -17,10 +17,10 @@ class Twitter :
         try:
             api = self.init_tweepy()
             api.destroy_direct_message(id)
-            time.sleep(30)
+            time.sleep(15)
         except Exception as ex:
             print(ex)
-            time.sleep(30)
+            time.sleep(15)
             pass
 
 
@@ -38,12 +38,12 @@ class Twitter :
                 dms.reverse()
             print(str(len(dms))+ " collected")
             # if str(len(dms)) == 0:
-            time.sleep(30)
+            time.sleep(15)
             return dms
 
         except Exception as ex:
             print(ex)
-            time.sleep(30)
+            time.sleep(15)
             pass
 
     def post_tweet(self, message):
