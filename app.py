@@ -23,15 +23,14 @@ def start():
                         if "https://" not in message and "http://" not in message:
                             if "--s" in message:
                                 message = message.replace("--s", "")
-                                # screen_name = tw.get_user_screen_name(sender_id)
-                                tw.post_tweet(message)
+                                tw.post_tweet(message, sender_id, screen_name, id)
                                 print("somethinga")
                                 tw.delete_dm(id)
                                 message = message.replace("--s", "")
                                 benar.write("(" + screen_name + ", " + id + ", " + message + ")\n")
 
                             else:
-                                tw.post_tweet(message)
+                                tw.post_tweet(message, sender_id, screen_name, id)
                                 print("somethingb")
                                 tw.delete_dm(id)
                                 benar.write("(" + screen_name + ", " + id + ", " + message + ")\n")
