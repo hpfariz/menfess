@@ -38,7 +38,9 @@ def start():
                             salah.write("(" + screen_name + ", " + id + ", " + message + ")\n")
                             print("somethingc")
                             tw.delete_dm(id)
-                    
+                elif screen_name == constant.USERNAME:
+                    pass
+
                 else:
                     print("somethingd")
                     tw.delete_dm(id)
