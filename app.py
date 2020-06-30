@@ -1,5 +1,6 @@
 from twitter import Twitter
 import time
+import constant
 # from media import Media
 
 tw = Twitter()
@@ -15,17 +16,18 @@ def start():
                 sender_id = dms[i]['sender_id']
                 screen_name = tw.get_user_screen_name(sender_id)
                 id = dms[i]['id']
-                if screen_name != "nyobafhp" and ("[mf]" in message or "[Mf]" in message or"[mF]" in message or "[MF]" in message):
-                    benar = open("list.txt", "a")
-                    salah = open("banned.txt", "a")
-
+                benar = open("list.txt", "a")
+                salah = open("banned.txt", "a")
+                if screen_name != constant.USERNAME and ("[mf]" in message or "[Mf]" in message or"[mF]" in message or "[MF]" in message):
                     if len(message) != 0 and len(message) <= 500:
                         if "https://" not in message and "http://" not in message:
                             if "--s" in message:
                                 message = message.replace("--s", "")
+                                # screen_name = tw.get_user_screen_name(sender_id)
                                 tw.post_tweet(message)
                                 print("somethinga")
                                 tw.delete_dm(id)
+                                message = message.replace("--s", "")
                                 benar.write("(" + screen_name + ", " + id + ", " + message + ")\n")
 
                             else:
@@ -35,19 +37,22 @@ def start():
                                 benar.write("(" + screen_name + ", " + id + ", " + message + ")\n")
                         else:
                             salah.write("(" + screen_name + ", " + id + ", " + message + ")\n")
+                            print("somethingc")
                             tw.delete_dm(id)
-                    benar.close()
-                    salah.close()
+                    
                 else:
+                    print("somethingd")
                     tw.delete_dm(id)
-
+                    salah.write("(" + screen_name + ", " + id + ", " + message + ")\n")
+                benar.close()
+                salah.close()
             dms = list()
 
         else:
             print("DM is empty")
             dms = tw.read_dm()
             if len(dms) == 0:
-                time.sleep(30)
+                time.sleep(60)
                 # break
 
 

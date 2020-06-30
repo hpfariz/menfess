@@ -5,3 +5,4 @@
 (farizfhp, 1275487071793111044, mf nyoba)
 (farizfhp, 1275487093494411268, nyomfba)
 (farizfhp, 1275487083608465412, nyobamf)
+(farizfhp, 1277939556730331140, [mf] nyobain lggg)
