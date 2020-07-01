@@ -49,7 +49,7 @@ class Twitter :
     def post_tweet(self, message, sender_id, screen_name, id):
         print("Uploading..")
         api = self.init_tweepy()
-        isi = screen_name + ", " + message + ", " + id
+        isi = screen_name + ", " + sender_id + ", " + message + ", " + id
         print(sender_id)
         api.update_status(message)
         print("Sending DM...")
